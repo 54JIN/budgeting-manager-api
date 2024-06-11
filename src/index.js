@@ -1,21 +1,14 @@
 const express = require('express')
 require('./db/mongoose')
-const User = require('./models/user')
+const userRouter = require('./routers/user')
+const incomeRouter = require('./routers/income')
 
 const app = express()
 const port = process.env.PORT || 3001
 
 app.use(express.json())
-
-app.post('/users', (req, res) => {
-    const user = new User(req.body)
-
-    user.save().then(() => {
-        res.send(user)
-    }).catch((e) => {
-        res.status(400).send(e)
-    })
-})
+app.use(userRouter)
+app.use(incomeRouter)
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
