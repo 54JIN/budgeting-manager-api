@@ -48,7 +48,13 @@ router.patch('/incomes/:id', async (req, res) => {
     }
 
     try {
-        const income = await Income.findByIdAndUpdate(req.params.id, req.body, { new: true, validators: true} )
+        const income = await Income.findById(req.params.id)
+
+        updates.forEach((update) => income[update] = req.body[update])
+
+        await income.save()
+
+        //const income = await Income.findByIdAndUpdate(req.params.id, req.body, { new: true, validators: true} )
 
         if(!income) {
             return res.status(404).send()
