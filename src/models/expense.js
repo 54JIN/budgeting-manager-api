@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
-const Income = mongoose.model('Income', {
-    wage: {
+const Expense = mongoose.model('Expense', {
+    spending: {
         type: Number,
         required: true,
         validate(val) {
             if(val === 0) {
-                throw new Error("Income cannot be $0.00")
+                throw new Error("Expense cannot be $0.00")
             } else if(val < 0) {
-                throw new Error('Income cannot be negative')
+                throw new Error('Expense cannot be negative')
             }
         }
     },
@@ -30,4 +30,4 @@ const Income = mongoose.model('Income', {
     }
 })
 
-module.exports = Income
+module.exports = Expense

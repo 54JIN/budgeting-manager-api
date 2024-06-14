@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Income = require('./income')
+const Expense = require('./expense')
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -44,6 +45,13 @@ const userSchema = new mongoose.Schema({
 //Creates a relationship between User and Income for Mongoose to reference to
 userSchema.virtual('incomes', {
     ref: 'Income',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+//Creates a relationship between User and Expense for Mongoose to reference to
+userSchema.virtual('expenses', {
+    ref: 'Expense',
     localField: '_id',
     foreignField: 'owner'
 })
@@ -97,6 +105,7 @@ userSchema.pre('save', async function (next) {
 userSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
     const user = this
     await Income.deleteMany({ owner: user._id })
+    await Expense.deleteMany({ owner: user._id})
     next()
 })
 
