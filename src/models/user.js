@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Income = require('./income')
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -38,6 +39,13 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
+})
+
+//Creates a relationship between User and Income for Mongoose to reference to
+userSchema.virtual('incomes', {
+    ref: 'Income',
+    localField: '_id',
+    foreignField: 'owner'
 })
 
 userSchema.methods.toJSON = function () {
@@ -83,6 +91,12 @@ userSchema.pre('save', async function (next) {
         user.password = await bcrypt.hash(user.password, 8)
     }
 
+    next()
+})
+
+userSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
+    const user = this
+    await Income.deleteMany({ owner: user._id })
     next()
 })
 

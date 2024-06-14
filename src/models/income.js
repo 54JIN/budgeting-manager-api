@@ -17,6 +17,11 @@ const Income = mongoose.model('Income', {
                 throw new Error('Income cannot be negative')
             }
         }
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 })
 
