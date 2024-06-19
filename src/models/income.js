@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Income = mongoose.model('Income', {
+const incomeSchema = new mongoose.Schema({
     wage: {
         type: Number,
         required: true,
@@ -28,6 +28,10 @@ const Income = mongoose.model('Income', {
         required: true,
         ref: 'User'
     }
+}, {
+    timestamps:true
 })
+
+const Income = mongoose.model('Income', incomeSchema)
 
 module.exports = Income

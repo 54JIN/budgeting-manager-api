@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Expense = mongoose.model('Expense', {
+const expenseSchema = new mongoose.Schema({
     spending: {
         type: Number,
         required: true,
@@ -28,6 +28,10 @@ const Expense = mongoose.model('Expense', {
         required: true,
         ref: 'User'
     }
+}, {
+    timestamps: true
 })
+
+const Expense = mongoose.model('Expense', expenseSchema)
 
 module.exports = Expense

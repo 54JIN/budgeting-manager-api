@@ -18,8 +18,22 @@ router.post('/incomes', auth, async (req, res) => {
 })
 
 router.get('/incomes', auth, async (req, res) => {
+    const sort = {}
+
+    if(req.query.sortBy) {
+        const parts = req.query.sortBy.split(':')
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+    }
+
     try {
-        await req.user.populate('incomes')
+        await req.user.populate({
+            path: 'incomes',
+            options: {
+                limit: parseInt(req.query.limit) || null,
+                skip: parseInt(req.query.skip) || null,
+                sort
+            }
+        })
         res.send(req.user.incomes)
     } catch(e) {
         res.status(500).send()

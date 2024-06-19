@@ -5,7 +5,7 @@ const incomeRouter = require('./routers/income')
 const expenseRouter = require('./routers/expense')
 
 const app = express()
-const port = process.env.PORT || 3001
+const port = process.env.PORT
 
 app.use(express.json())
 app.use(userRouter)
