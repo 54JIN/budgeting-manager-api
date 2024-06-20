@@ -32,7 +32,7 @@ const incomeOne = {
     _id: new mongoose.Types.ObjectId(),
     wage : 1500,
     category : "YouTube",
-    date : "06/15/2024",
+    date : "05/15/2024",
     notes : "Testing YouTube",
     owner: userOne._id
 }
@@ -48,6 +48,15 @@ const incomeTwo = {
 
 const incomeThree = {
     _id: new mongoose.Types.ObjectId(),
+    wage : 700,
+    category : "TikTok",
+    date : "06/16/2024",
+    notes : "Testing Twitch",
+    owner: userOne._id
+}
+
+const incomeFour = {
+    _id: new mongoose.Types.ObjectId(),
     wage : 300,
     category : "Kick",
     date : "06/18/2024",
@@ -59,7 +68,7 @@ const expenseOne = {
     _id: new mongoose.Types.ObjectId(),
     spending : 1500,
     category : "YouTube",
-    date : "06/15/2024",
+    date : "05/15/2024",
     notes : "Testing YouTube",
     owner: userOne._id
 }
@@ -74,6 +83,15 @@ const expenseTwo = {
 }
 
 const expenseThree = {
+    _id: new mongoose.Types.ObjectId(),
+    spending : 400,
+    category : "TikTok",
+    date : "06/18/2024",
+    notes : "Testing Kick",
+    owner: userOne._id
+}
+
+const expenseFour = {
     _id: new mongoose.Types.ObjectId(),
     spending : 300,
     category : "Kick",
@@ -91,9 +109,11 @@ const setupDatabase = async () => {
     await new Income(incomeOne).save()
     await new Income(incomeTwo).save()
     await new Income(incomeThree).save()
+    await new Income(incomeFour).save()
     await new Expense(expenseOne).save()
     await new Expense(expenseTwo).save()
     await new Expense(expenseThree).save()
+    await new Expense(expenseFour).save()
 }
 
 module.exports = {
@@ -104,8 +124,10 @@ module.exports = {
     incomeOne,
     incomeTwo,
     incomeThree,
+    incomeFour,
     expenseOne,
     expenseTwo,
     expenseThree,
+    expenseFour,
     setupDatabase
 }

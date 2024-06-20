@@ -9,6 +9,7 @@ const {
     incomeOne,
     incomeTwo,
     incomeThree,
+    incomeFour,
     setupDatabase 
 } = require('./fixtures/db')
 
@@ -35,7 +36,7 @@ test('Should fetch user income', async () => {
         .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
         .send()
         .expect(200)
-    expect(response.body.length).toEqual(2)
+    expect(response.body.length).toEqual(3)
 })
 
 test('Should not delete other users income', async () => {
@@ -46,4 +47,13 @@ test('Should not delete other users income', async () => {
         .expect(404)
     const income = await Income.findById(incomeOne._id)
     expect(income).not.toBeNull()
+})
+
+test('Should fetch user income by month' , async () => {
+    const response = await request(app)
+        .get('/incomes?month=05&year=2024')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send()
+        .expect(200)
+    expect(response.body.length).toEqual(1)
 })

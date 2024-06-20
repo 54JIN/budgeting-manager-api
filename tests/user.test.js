@@ -29,6 +29,78 @@ test('Should signup a new user', async () => {
     expect(user.password).not.toBe('Rework123')
 })
 
+test('Should not signup user with invalid firstName' , async () => {
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "",
+            lastName: "timothy" ,
+            email: "blanktimothy@example.com",
+            password: "Remember123"
+        })
+        .expect(400)
+})
+
+test('Should not signup user with invalid lastName' , async () => {
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "timothy",
+            lastName: "" ,
+            email: "blanktimothy@example.com",
+            password: "Remember123"
+        })
+        .expect(400)
+})
+
+test('Should not signup user with invalid email' , async () => {
+    //Empty Email
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "timothy",
+            lastName: "blank" ,
+            email: "",
+            password: "Remember123"
+        })
+        .expect(400)
+    
+    //Improper Email    
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "timothy",
+            lastName: "blank" ,
+            email: "isfhs@.com",
+            password: "Remember123"
+        })
+        .expect(400)
+})
+
+test('Should not signup user with invalid password' , async () => {
+    //Empty Password
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "timothy",
+            lastName: "blank" ,
+            email: "blanktimothy@example.com",
+            password: ""
+        })
+        .expect(400)
+    
+    //Less than minimum length 7 password
+    await request(app)
+        .post('/users')
+        .send({
+            firstName: "timothy",
+            lastName: "blank" ,
+            email: "blanktimothy@example.com",
+            password: "qwert1"
+        })
+        .expect(400)
+})
+
 test('Should login existing user', async () => {
     const response = await request(app).post('/users/login').send({
         email: userOne.email,
@@ -96,6 +168,75 @@ test('Should not update invalid user fields', async () => {
         .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
         .send({
             location: 'Philadelphia'
+        })
+        .expect(400)
+})
+
+test('Should not update user if unauthenticated', async () => {
+    await request(app)
+        .patch('/users/me')
+        .send({
+            firstName: 'Bess'
+        })
+        .expect(401)
+})
+
+test('Should not update user with invalid firstName', async () => {
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            firstName: ''
+        })
+        .expect(400)
+})
+
+test('Should not update user with invalid lastName', async () => {
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            lastName: ''
+        })
+        .expect(400)
+})
+
+test('Should not update user with invalid email', async () => {
+    //Empty Email
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            email: ''
+        })
+        .expect(400)
+    
+    //Improper Email
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            email: 'fgasef@.com'
+        })
+        .expect(400)
+})
+
+test('Should not update user with invalid password', async () => {
+    //Empty password
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            password: ''
+        })
+        .expect(400)
+    
+    //Less than minimum length 7 password
+    await request(app)
+        .patch('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send({
+            password: 'qwert1'
         })
         .expect(400)
 })

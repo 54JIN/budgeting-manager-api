@@ -9,6 +9,7 @@ const {
     expenseOne,
     expenseTwo,
     expenseThree,
+    expenseFour,
     setupDatabase 
 } = require('./fixtures/db')
 
@@ -30,13 +31,13 @@ test('Should create expense for user', async () => {
     expect(expense).not.toBeNull()
 })
 
-test('Should fetch user income', async () => {
+test('Should fetch user expense', async () => {
     const response = await request(app)
         .get('/expenses')
         .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
         .send()
         .expect(200)
-    expect(response.body.length).toEqual(2)
+    expect(response.body.length).toEqual(3)
 })
 
 test('Should not delete other users expense', async () => {
@@ -47,4 +48,13 @@ test('Should not delete other users expense', async () => {
         .expect(404)
     const expense = await Expense.findById(expenseOne._id)
     expect(expense).not.toBeNull()
+})
+
+test('Should fetch user expense by month' , async () => {
+    const response = await request(app)
+        .get('/expenses?month=05&year=2024')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send()
+        .expect(200)
+    expect(response.body.length).toEqual(1)
 })
