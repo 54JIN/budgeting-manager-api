@@ -1,7 +1,6 @@
 const request = require('supertest')
 const app = require('../src/app')
 const Expense = require('../src/models/expense')
-const Test = require('supertest/lib/test')
 const { 
     userOneId, 
     userOne, 

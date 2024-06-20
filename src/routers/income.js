@@ -18,16 +18,33 @@ router.post('/incomes', auth, async (req, res) => {
 })
 
 router.get('/incomes', auth, async (req, res) => {
+    const match = {}
     const sort = {}
 
+    //Sort By Create Date
     if(req.query.sortBy) {
         const parts = req.query.sortBy.split(':')
         sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
     }
 
+    //Filter By Month and Year
+    if(req.query.month && req.query.year) {
+        const month = parseInt(req.query.month) - 1
+        const year = parseInt(req.query.year)
+
+        const startDate = new Date(year, month, 1)
+        const endDate = new Date(year, month+1, 1)
+
+        match.date = {
+            $gte: startDate,
+            $lt: endDate 
+        }
+    }
+
     try {
         await req.user.populate({
             path: 'incomes',
+            match,
             options: {
                 limit: parseInt(req.query.limit) || null,
                 skip: parseInt(req.query.skip) || null,
