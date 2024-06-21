@@ -9,12 +9,14 @@ const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     lastName: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     email: {
         type: String,
@@ -52,6 +54,13 @@ userSchema.virtual('incomes', {
 //Creates a relationship between User and Expense for Mongoose to reference to
 userSchema.virtual('expenses', {
     ref: 'Expense',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+//Creates a relationship between User and Goal for Mongoose to reference to
+userSchema.virtual('goals', {
+    ref: 'Goal',
     localField: '_id',
     foreignField: 'owner'
 })
