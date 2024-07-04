@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "npm install --prefix budgeting-manager-front && npm run build --prefix budgeting-manager-front",
     "start": "node src/index.js",
     "dev": "./node_modules/.bin/env-cmd -f ./config/.env nodemon src/index.js",
     "test": "./node_modules/.bin/env-cmd -f ./config/test.env jest --watch --runInBand"
