@@ -1,0 +1,9 @@
+.TransactionHistory {
+
+}
+
+.TransactionHistory-Content-Title {
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+}

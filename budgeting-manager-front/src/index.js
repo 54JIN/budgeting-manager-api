@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App.tsx';
 import reportWebVitals from './reportWebVitals';
+
+//Components
+import App from './App.tsx';
+import Home from './Components/Pages/Home/Home.tsx'
+import Login from './Components/Pages/Login/Login.tsx'
+import Error from './Components/Pages/Error/Error.tsx'
 
 //NPM Dev dependencies
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -12,8 +17,23 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <div>404 Not Found</div>
-  }
+    errorElement: <Error />
+  },
+  {
+    path: '/home',
+    element: <Home />,
+    errorElement: <Error />
+  },
+  {
+    path: '/login',
+    element: <Login />,
+    errorElement: <Error />
+  },
+  {
+    path: '/error',
+    element: <Error />,
+    errorElement: <Error />
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
