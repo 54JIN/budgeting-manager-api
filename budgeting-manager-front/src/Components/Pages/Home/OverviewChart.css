@@ -1,5 +1,13 @@
 .OverviewChart {
     display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 23vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: white;
+}
+
+.OverviewChart-Chart {
     width: 20vw;
-    height: 20vw;
 }

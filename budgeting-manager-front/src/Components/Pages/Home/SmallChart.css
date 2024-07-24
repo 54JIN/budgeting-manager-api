@@ -1,5 +1,9 @@
 .SmallChart {
     display: flex;
-    width: 20vw;
-    height: 20vw;
+    flex-direction: column;
+    width: 18vw;
+    height: 23vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: white;
 }

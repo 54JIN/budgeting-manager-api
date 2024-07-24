@@ -7,19 +7,21 @@ import './SmallChart.css';
 //Register the components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function SmallChart({ datasets }) {
+function SmallChart({ title, datasets }) {
   /*
     Objective: Provide the propper information & data for the doughnut chart to be created and displayed
   */
   const data = {
-    labels: ['Savings', 'Spending'],
+    labels: datasets.map((transaction) => transaction.label),
     datasets: [
       {
         label:'$',
-        data: datasets,
+        data: datasets.map((transaction) => transaction.amount),
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
+          'rgba(27,94,47,255)',
+          'rgba(154,210,42,255)',
+          'rgba(199,244,46,1)',
+          'rgba(66,199,0,255)',
         ],
       }
     ]
@@ -32,17 +34,16 @@ function SmallChart({ datasets }) {
     responsive: true,
     plugins: {
       legend: {
-        position: 'right' as const,
-      },
-      title: {
-        display: true,
-        text: 'Savings vs Spending'
+        position: 'bottom' as const,
       }
     }
   }
 
   return (
     <div className="SmallChart">
+      <div>
+        <h2>{title}</h2>
+      </div>
       <div>
         <Doughnut data={data} options={options} />
       </div>

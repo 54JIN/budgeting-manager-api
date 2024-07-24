@@ -18,8 +18,9 @@ function OverviewChart({ datasets }) {
         label:'$',
         data: datasets,
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
+          'rgba(27,94,47,255)',
+          // 'rgba(228,83,28,255)',
+          'rgba(227,79,26,255)',
         ],
       }
     ]
@@ -33,10 +34,6 @@ function OverviewChart({ datasets }) {
     plugins: {
       legend: {
         position: 'right' as const,
-      },
-      title: {
-        display: true,
-        text: 'Savings vs Spending'
       }
     }
   }
@@ -44,6 +41,9 @@ function OverviewChart({ datasets }) {
   return (
     <div className="OverviewChart">
       <div>
+        <h2>This Month's Finances</h2>
+      </div>
+      <div className='OverviewChart-Chart'>
         <Doughnut data={data} options={options} />
       </div>
     </div>

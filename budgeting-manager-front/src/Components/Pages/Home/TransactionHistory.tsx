@@ -21,7 +21,7 @@ function TransactionHistory({ datasets }) {
               <p className='TransactionHistory-Content-Reciever'>{transaction.reciever}</p>
               <p className='TransactionHistory-Content-Category'>{transaction.type}</p>
               <p className='TransactionHistory-Content-Category'>{transaction.date}</p>
-              <p className='TransactionHistory-Content-Category'>{transaction.amount}</p>
+              <p className='TransactionHistory-Content-Category'>${transaction.amount}</p>
             </div>
           ))}
         </div>

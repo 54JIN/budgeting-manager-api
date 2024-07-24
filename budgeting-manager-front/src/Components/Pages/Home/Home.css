@@ -1,10 +1,12 @@
 .Home {
     display: flex;
+    background-color: rgb(244, 244, 244);
 }
 
 .Home-Content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 78vw;
     padding-top: 1vw;
     padding-left: 1vw;
@@ -12,14 +14,15 @@
     padding-bottom: 1vw;
 }
 
-.Home-Content-Visuals {
+.Home-Content-Top {
     display: flex;
     justify-content: space-between;
 }
 
-.Home-Content-Goals {
+.Home-Content-Middle {
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 .Home-Content-Goals-Content {
@@ -27,6 +30,7 @@
     gap: 2vw;
 }
 
-.Home-Content-Transactions {
+.Home-Content-Bottom {
     display: flex;
+    justify-content: space-between;
 }
