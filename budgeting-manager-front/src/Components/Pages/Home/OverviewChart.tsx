@@ -31,20 +31,37 @@ function OverviewChart({ datasets }) {
   */
   const options = {
     responsive: true,
+    layout: {
+      padding: {
+        top: 0,
+        bottom: 0
+      }
+    },
     plugins: {
       legend: {
         position: 'right' as const,
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'circle'
+        }
       }
     }
   }
 
   return (
     <div className="OverviewChart">
-      <div>
+      <div className='OverviewChart-Title'>
         <h2>This Month's Finances</h2>
+        <p>May 1 - May 31</p>
       </div>
-      <div className='OverviewChart-Chart'>
-        <Doughnut data={data} options={options} />
+      <div className='OverviewChart-Content'>
+        <div className='OverviewChart-Content-Title'>
+          <h2>$3000</h2>
+          {/* <p>Earned</p> */}
+        </div>
+        <div className='OverviewChart-Content-Visual'>
+          <Doughnut data={data} options={options} />
+        </div>
       </div>
     </div>
   );

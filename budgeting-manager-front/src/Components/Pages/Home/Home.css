@@ -21,12 +21,6 @@
 
 .Home-Content-Middle {
     display: flex;
-    flex-direction: column;
-    background-color: white;
-}
-
-.Home-Content-Goals-Content {
-    display: flex;
     gap: 2vw;
 }
 

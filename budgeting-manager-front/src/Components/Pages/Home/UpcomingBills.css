@@ -1,20 +1,28 @@
 .UpcomingBills {
     display: flex;
     flex-direction: column;
-    width: 10vw;
-    background-color: white;
-}
-
-.UpcomingBills-Title {
-    
-}
-
-.UpcomingBills-Content {
-    display: flex;
-    flex-direction: column;
+    width: 23vw;
+    gap: 1vw;
 }
 
 .UpcomingBills-Content-Bill {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: white;
+}
+
+.UpcomingBills-Content-Bill-Left-Title {
+    font-size: 1vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.UpcomingBills-Content-Bill-Left-Date {
+    font-size: 0.8vw;
+    margin-top: 0px;
+    margin-bottom: 0.5vw;
+    color: #AAAAAA;
 }

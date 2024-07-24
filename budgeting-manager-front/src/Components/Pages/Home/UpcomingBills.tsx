@@ -5,17 +5,17 @@ import './UpcomingBills.css';
 function UpcomingBills({ data }) {
   return (
     <div className="UpcomingBills">
-        <div className='UpcomingBills-Title'>
-            <h2>Upcoming Bills</h2>
-        </div>
-        <div className='UpcomingBills-Content'>
-            {data.map(bill => (
-                <div className='UpcomingBills-Content-Bill'>
-                    <p>{bill.title}</p>
+        {data.map(bill => (
+            <div className='UpcomingBills-Content-Bill'>
+                <div className='UpcomingBills-Content-Bill-Left'>
+                    <p className='UpcomingBills-Content-Bill-Left-Title'>{bill.title}</p>
+                    <p className='UpcomingBills-Content-Bill-Left-Date'>{bill.dueDate}</p>
+                </div>
+                <div className='UpcomingBills-Content-Bill-Right'>
                     <p>${bill.amount}</p>
                 </div>
-            ))}
-        </div>
+            </div>
+        ))}
     </div>
   );
 }

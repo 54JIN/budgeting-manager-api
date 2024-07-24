@@ -7,7 +7,9 @@ import './TransactionHistory.css';
 function TransactionHistory({ datasets }) {
   return (
     <div className="TransactionHistory">
-      <h2>Transaction History</h2>
+      <div className="TransactionHistory-Title">
+        <h2>Transaction History</h2>
+      </div>
       <div className='TransactionHistory-Content'>
         <div className='TransactionHistory-Content-Inner-Pannel'>
             <p className='TransactionHistory-Content-Reciever'>Reciever</p>

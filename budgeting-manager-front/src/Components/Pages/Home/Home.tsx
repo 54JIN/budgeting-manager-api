@@ -24,7 +24,7 @@ function Home() {
   const [isError, setIsError] = useState(false)
 
   //Server-Side User Data
-  const [userData, setUserData] = useState({overallStatus: [1000, 3000], expenseStatus: [{ label: 'Rent', amount: 1000 }, { label: 'Gas', amount: 200 }, { label: 'Grocceries', amount: 324 }, { label: 'Clothes', amount: 254 },], incomeStatus: [{ label: 'Salary', amount: 7000 }, { label: 'Stocks', amount: 400 }], goals: [{ title: 'Holiday trip', amount: 655.00}, { title: 'Renovation', amount: 235.00}, { title: 'Xbox', amount: 854.00}, { title: 'Birthday', amount: 495.00},], transactions: [{ reciever: 'Starbucks Coffee', type: 'Food', date: '2024-01-23', amount: 75.67 }, { reciever: 'Nogod Bangladesh', type: 'Shopping', date: '2024-01-25', amount: 250.00 }, { reciever: 'Pathao Bangladesh', type: 'Ride Shope', date: '2024-01-26', amount: 19.50 }, { reciever: 'Ofspace LLC', type: 'Design', date: '2024-01-28', amount: 350.00 }], upcomingBills: [{ title: 'Hulu', amount: 12.00 }, { title: 'Netflix', amount: 18.00 }, { title: 'Gas & Electric', amount: 160.00 }, { title: 'Car Insurance', amount: 234.00 },]})
+  const [userData, setUserData] = useState({overallStatus: [1000, 3000], expenseStatus: [{ label: 'Rent', amount: 1000 }, { label: 'Gas', amount: 200 }, { label: 'Grocceries', amount: 324 }, { label: 'Clothes', amount: 254 },], incomeStatus: [{ label: 'Salary', amount: 7000 }, { label: 'Stocks', amount: 400 }], goals: [{ title: 'Holiday trip', amount: 655.00}, { title: 'Renovation', amount: 235.00}, { title: 'Xbox', amount: 854.00}, { title: 'Birthday', amount: 495.00},], transactions: [{ reciever: 'Starbucks Coffee', type: 'Food', date: '2024-01-23', amount: 75.67 }, { reciever: 'Nogod Bangladesh', type: 'Shopping', date: '2024-01-25', amount: 250.00 }, { reciever: 'Pathao Bangladesh', type: 'Ride Shope', date: '2024-01-26', amount: 19.50 }, { reciever: 'Ofspace LLC', type: 'Design', date: '2024-01-28', amount: 350.00 }], upcomingBills: [{ title: 'Hulu', dueDate: '05 May 2023', amount: 12.00 }, { title: 'Netflix', dueDate: '07 May 2023',amount: 18.00 }, { title: 'Gas & Electric', dueDate: '08 May 2023', amount: 160.00 }, { title: 'Car Insurance', dueDate: '10 May 2023', amount: 234.00 },]})
   // const [userData, setUserData] = useState({})
 
   /*
@@ -61,14 +61,9 @@ function Home() {
             <SmallChart title="Incomes" datasets={userData.incomeStatus} />
           </div>
           <div className='Home-Content-Middle'>
-            <div className='Home-Content-Goals-Title'>
-              <h2>Goals</h2>
-            </div>
-            <div className='Home-Content-Goals-Content'>
-              {userData.goals.map((goal) => (
-                <Goal data={goal} />
-              ))}
-            </div>
+            {userData.goals.map((goal) => (
+              <Goal data={goal} />
+            ))}
           </div>
           <div className='Home-Content-Bottom'>
             <TransactionHistory datasets={userData.transactions} />

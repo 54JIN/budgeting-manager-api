@@ -1,12 +1,19 @@
 .Goal {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    width: 9vw;
+    height: 10vw;
+    padding-top: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 0.5vw;
 }
 
 .Goal-Title {
-    font-weight: bold;
-    font-size: 0.8vw;
-    margin-top: 0px;
+    font-size: 1vw;
+    margin-top: 1vw;
     margin-bottom: 2vw;
 }
 
@@ -14,11 +21,12 @@
     font-size: 0.8vw;
     margin-top: 0px;
     margin-bottom: 0px;
+    color: #AAAAAA;
 }
 
 .Goal-Amount {
     font-weight: bold;
-    font-size: 1.4vw;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    font-size: 1.8vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
 }

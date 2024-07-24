@@ -35,16 +35,20 @@ function SmallChart({ title, datasets }) {
     plugins: {
       legend: {
         position: 'bottom' as const,
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'circle'
+        }
       }
     }
   }
 
   return (
     <div className="SmallChart">
-      <div>
+      <div className='SmallChart-Title'>
         <h2>{title}</h2>
       </div>
-      <div>
+      <div className='SmallChart-Visual'>
         <Doughnut data={data} options={options} />
       </div>
     </div>

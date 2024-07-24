@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
 
+import HomeImg from '../../../Assets/Images/HomeImg.png'
+
 function Login() {
     const [formData, setFormData] = useState({ email: '', password: '' })
     const navigate = useNavigate();
@@ -42,11 +44,17 @@ function Login() {
 
     return (
         <div className="Login">
-        <div className="Login-Form">
-            <input type="email" placeholder='Email' name="email" value={formData.email} onChange={handleChange} />
-            <input type="password" placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
-            <button onClick={clickLoginHandler} >Login</button>
-        </div>
+            <div className='Login-Img'>
+                <img src={HomeImg} />
+            </div>
+            <div className="Login-Content">
+                <h1>Budget Manager</h1>
+                <div className="Login-Content-Form">
+                    <input type="email" placeholder='Email' name="email" value={formData.email} onChange={handleChange} />
+                    <input type="password" placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
+                    <button onClick={clickLoginHandler} >Login</button>
+                </div>
+            </div>
         </div>
     );
 }

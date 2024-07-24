@@ -1,0 +1,43 @@
+.Login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Login-Img {
+    width: 45vw;
+    height: 50vw;
+}
+
+.Login-Img img {
+    width: 45vw;
+    height: 50vw;
+    object-fit: cover;
+}
+
+.Login-Content {
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+}
+
+.Login-Content-Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 8vw;
+}
+
+.Login-Content-Form input {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.Login-Content-Form button {
+    background-color: rgba(199,244,46,1);
+    border: none;
+    width: 10vw;
+    height: 2.5vw;
+    font-size: 1.1vw;
+    cursor: pointer;
+}

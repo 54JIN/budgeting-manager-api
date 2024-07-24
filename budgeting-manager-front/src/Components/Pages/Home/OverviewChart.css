@@ -1,13 +1,60 @@
 .OverviewChart {
     display: flex;
     flex-direction: column;
-    width: 25vw;
-    height: 23vw;
+    width: 34vw;
+    height: 20vw;
     padding-left: 1vw;
     padding-right: 1vw;
     background-color: white;
 }
 
-.OverviewChart-Chart {
-    width: 20vw;
+.OverviewChart-Title h2 {
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+}
+
+.OverviewChart-Title p {
+    font-size: 1.3vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+    color: #AAAAAA;
+}
+
+.OverviewChart-Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.OverviewChart-Content-Title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16vw;
+}
+
+.OverviewChart-Content-Title p {
+    font-size: 1vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+}
+
+.OverviewChart-Content-Title h2 {
+    font-size: 3vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+}
+
+.OverviewChart-Content-Visual {
+    display: flex;
+    align-items: center;
+    width: 18vw;
+    height: 16vw;
+}
+
+.OverviewChart-Content-Visual {
+    display: flex;
+    align-items: center;
+    width: 18vw;
 }

@@ -1,7 +1,18 @@
 .TransactionHistory {
     width: 52vw;
+    padding-top: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
     background-color: white;
 }
+
+.TransactionHistory-Title h2 {
+    font-size: 1.3vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 
 .TransactionHistory-Content {
     padding-left: 1vw;

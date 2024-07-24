@@ -2,8 +2,22 @@
     display: flex;
     flex-direction: column;
     width: 18vw;
-    height: 23vw;
+    height: 20vw;
     padding-left: 1vw;
     padding-right: 1vw;
     background-color: white;
+}
+
+.SmallChart-Title h2 {
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+}
+
+.SmallChart-Visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16vw;
+    height: 100%;
 }
