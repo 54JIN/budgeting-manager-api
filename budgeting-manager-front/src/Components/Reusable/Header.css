@@ -50,3 +50,35 @@
 .Navigation-Inactive {
     background: none;
 }
+
+.Header-Logout {
+    display: flex;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.Header-Logout button {
+    background: none;
+    border: none;
+    padding-top: 0.8vw;
+    padding-left: 1vw;
+    padding-bottom: 0.8vw;
+    color: black;
+    font-size: 1.3vw;
+    text-align: start;
+    width: 100%;
+    cursor: pointer;
+}
+
+.Header-Logout button:hover {
+    background-color: rgba(244,252,227,255);
+}
+
+.Header-Footer p {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.Header-Footer p {
+    font-size: 1vw;
+}

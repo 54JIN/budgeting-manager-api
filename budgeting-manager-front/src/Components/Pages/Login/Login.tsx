@@ -31,6 +31,7 @@ function Login() {
                 password: formData.password
             }).then((response) => {
                 window.localStorage.setItem("token", JSON.stringify(response.data.token))
+                //!-- Currently the local storage is not storing the usersName --!
                 window.localStorage.setItem("name", JSON.stringify(response.data.user.name))
                 navigate('/home')
             })

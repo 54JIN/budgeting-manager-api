@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import './Header.css';
 
@@ -6,6 +8,31 @@ import './Header.css';
 
 
 function Header({ activeVal }) {
+  const navigate = useNavigate();
+
+  /*
+     Objective: On the event of an user clicking the logout button, request the server-side to log the user out, and if the server-side response has no errors, then remove all associated tokens from localStorage.
+  */
+  const handleLogoutClick = async () => {
+    try {
+      await axios.post('/api/users/logout', 
+      {
+          
+      },
+      {
+          headers: {
+              Authorization: `Bearer ${window.localStorage.getItem('token').replace('"', '').replace('"', '')}`
+          }
+      }).then(() => {
+        window.localStorage.removeItem('token')
+        window.localStorage.removeItem('name')
+        navigate('/login');
+    })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (
     <div className="Header">
       <div className="Header-Logo">
@@ -17,11 +44,11 @@ function Header({ activeVal }) {
         <button className={activeVal === 2 ? 'Navigation-Active' : 'Navigation-Inactive'} >Profile</button>
         <button className={activeVal === 3 ? 'Navigation-Active' : 'Navigation-Inactive'} >Settings</button>
       </div>
-      <div>
-        <button>Log out</button>
+      <div className='Header-Logout'>
+        <button onClick={handleLogoutClick} >Log out</button>
       </div>
       <div className='Header-Footer'>
-        <h4>userName</h4>
+        <p>userName</p>
       </div>
     </div>
   );
