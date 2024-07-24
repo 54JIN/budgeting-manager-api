@@ -1,0 +1,24 @@
+.Goal {
+    display: flex;
+    flex-direction: column;
+}
+
+.Goal-Title {
+    font-weight: bold;
+    font-size: 0.8vw;
+    margin-top: 0px;
+    margin-bottom: 2vw;
+}
+
+.Goal-Budget {
+    font-size: 0.8vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Goal-Amount {
+    font-weight: bold;
+    font-size: 1.4vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

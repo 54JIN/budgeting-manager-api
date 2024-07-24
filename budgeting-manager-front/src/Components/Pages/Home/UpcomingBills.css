@@ -1,0 +1,19 @@
+.UpcomingBills {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+}
+
+.UpcomingBills-Title {
+    
+}
+
+.UpcomingBills-Content {
+    display: flex;
+    flex-direction: column;
+}
+
+.UpcomingBills-Content-Bill {
+    display: flex;
+    justify-content: space-between;
+}

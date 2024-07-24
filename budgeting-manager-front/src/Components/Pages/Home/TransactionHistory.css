@@ -1,9 +1,20 @@
 .TransactionHistory {
-
+    width: 52vw;
 }
 
-.TransactionHistory-Content-Title {
+.TransactionHistory-Content {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.TransactionHistory-Content-Inner-Pannel {
     display: flex;
-    justify-content: space-between;
-    width: 40vw;
+}
+
+.TransactionHistory-Content-Reciever {
+    width: 20vw;
+}
+
+.TransactionHistory-Content-Category {
+    width: 10vw;
 }

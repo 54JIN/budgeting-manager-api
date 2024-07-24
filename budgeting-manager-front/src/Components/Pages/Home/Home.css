@@ -1,3 +1,32 @@
 .Home {
     display: flex;
 }
+
+.Home-Content {
+    display: flex;
+    flex-direction: column;
+    width: 78vw;
+    padding-top: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+}
+
+.Home-Content-Visuals {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home-Content-Goals {
+    display: flex;
+    flex-direction: column;
+}
+
+.Home-Content-Goals-Content {
+    display: flex;
+    gap: 2vw;
+}
+
+.Home-Content-Transactions {
+    display: flex;
+}

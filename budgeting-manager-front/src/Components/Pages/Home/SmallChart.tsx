@@ -2,12 +2,12 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js/auto"
 import { Doughnut } from "react-chartjs-2"
 
-import './OverviewChart.css';
+import './SmallChart.css';
 
 //Register the components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function OverviewChart({ datasets }) {
+function SmallChart({ datasets }) {
   /*
     Objective: Provide the propper information & data for the doughnut chart to be created and displayed
   */
@@ -42,7 +42,7 @@ function OverviewChart({ datasets }) {
   }
 
   return (
-    <div className="OverviewChart">
+    <div className="SmallChart">
       <div>
         <Doughnut data={data} options={options} />
       </div>
@@ -50,4 +50,4 @@ function OverviewChart({ datasets }) {
   );
 }
 
-export default OverviewChart;
+export default SmallChart;
